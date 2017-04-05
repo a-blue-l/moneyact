@@ -1,5 +1,4 @@
 $(function(){
-	alert(1)
 	// 执行动画函数
 	window.RAF = (function(){
 		return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {window.setTimeout(callback, 1000 / 60); };
@@ -45,13 +44,6 @@ $(function(){
 	console.log(setcookie)
 	;
 	(function(){
-		one_money.src = 'images/one_money.png';
-		five_money.src = 'images/five_money.png';
-		ten_money.src = 'images/ten_money.png';
-		back_money.src = 'images/one_money.png';
-		down_one.src= 'images/down-1.png';
-		down_five.src= 'images/down-5.png';
-		down_ten.src= 'images/down-10.png';
 		back_money.addEventListener('load',function(event){
 			backwidth = back_money.width = event.path[0].width/1.7;
 			backheight = back_money.height = event.path[0].height/1.7;
@@ -59,9 +51,17 @@ $(function(){
 		one_money.addEventListener('load',function(event){
 			one_money.width = event.path[0].width/1.7;
 			one_money.height = event.path[0].height/1.7;
-			init.start();
 		},false)
+		one_money.src = 'images/one_money.png';
+		five_money.src = 'images/five_money.png';
+		ten_money.src = 'images/ten_money.png';
+		back_money.src = 'images/one_money.png';
+		down_one.src= 'images/down-1.png';
+		down_five.src= 'images/down-5.png';
+		down_ten.src= 'images/down-10.png';
 	})()
+	
+			init.start();
 	var sprite = function(top,left){
 		this.width = 0;
 		this.height = 0;
