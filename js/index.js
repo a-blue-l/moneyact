@@ -143,7 +143,7 @@ $(function(){
 			})
 		},
 		start: function(){
-			for( var i = 0; i < 10; i ++ ){
+			for( var i = 0; i < 20; i ++ ){
 				var money_this = new sprite(canvas.height - one_money.height,(canvas.width - one_money.width)/2);
 				money_this.falg = 'false';
 				money_this.map = 1;
