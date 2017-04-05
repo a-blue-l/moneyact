@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" >
+	<title>money</title>
+	<link rel="stylesheet" href="css/index.css">
+	<script src="js/zepto.min.js"></script>
+	<script src="js/touch.min.js"></script>
+	<script>
+		;
+		(function(){
+			var _width = window.innerWidth,
+				$html = document.querySelector('html');
+			if(_width > 540){
+				$html.style.fontSize = '33.75px';
+			} else {
+				$html.style.fontSize = _width * .05 + 'px';
+			}
+		})()
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="750" height="1334"></canvas>
+	<div class="home-page">
+		<span class="homepage-light">
+			<img src="images/homepage_light.png" />
+		</span>
+		<span class="red-bg">
+			<img src="images/red-bg.png" />
+		</span>
+		<h2 class="homepage-name">
+			<img src="images/homepage_name.png" />
+		</h2>
+		<div class="home-btn">
+			<div class="regallist">
+				<img src="images/regallistbtn.png" />
+			</div>
+			<div class="start">
+				<img src="images/startbtn.png" />
+			</div>
+			<div class="activity">
+				<img src="images/activitybtn.png" />
+			</div>
+		</div>
+	</div>
+	<div class="onceprompt">
+		<div class="promptbox">
+			<p class="prompttext">手指点击钞票向上滑动数钱</p>
+			<i class="promptarrow">
+				<img src="images/promptarrow.png" />
+			</i>
+			<span class="prompthand">
+				<img src="images/prompthand.png" />
+			</span>
+			<span class="ikown">
+				<img src="images/ikoenbg.png" />
+			</span>
+		</div>
+	</div>
+	<div class="countdown">
+		<span class="num three">3</span>
+		<span class="num two">2</span>
+		<span class="num one">1</span>
+	</div>
+	<div class="gamecontent">
+		<div class="cloudbg">
+			<img src="images/top_cloud.png" />
+			<div class="numbercode">
+				<div class="moneynumber">¥ 0</div>
+				<div class="timenumber">15"</div>
+			</div>
+		</div>
+		<div class="bottombg">
+			<img src="images/bottom_img.png" />
+		</div>
+		<div class="endgame">
+			<p>厉害了我的哥！</p>
+			<p>您本次共抢到 <span class="moneybig">500</span> 软妹币，</p>
+			<p>现居富豪榜第 <span class="codebig">37</span> 名！</p>
+			<div class="endbtnlist">
+				<span class="endbtn returnhome">
+					<img src="images/returnhome.png" />
+				</span>
+				<span class="endbtn oncemore">
+					<img src="images/oncemore.png" />
+				</span>
+				<span class="endbtn bonusbtn">
+					<img src="images/bonusbtn.png" />
+				</span>
+			</div>
+			<span class="redbig">
+				<img src="images/redbigbg.png" />
+			</span>
+		</div>
+	</div>
+	<!-- 排行榜 -->
+	<div class="rankinglist-box">
+		<div class="rankinglist">
+			<h2>
+				<img src="images/rankname.png" />
+			</h2>
+			<div class="my-date">
+				<span class="date-num">98</span>
+				<span class="date-img">
+					<img src="images/regallistbtn.png" />
+				</span>
+				<span class="data-name">漫无目的的走zou</span>
+				<i class="line"></i>
+				<span class="date-money">￥120</span>
+			</div>
+			<ul class="date-list">
+				<li>
+					<span class="date-num">98</span>
+					<span class="date-img">
+						<img src="images/regallistbtn.png" />
+					</span>
+					<span class="data-name">漫无目的的走zou</span>
+					<i class="line"></i>
+					<span class="date-money">￥120</span>
+				</li>
+				<li>
+					<span class="date-num">98</span>
+					<span class="date-img">
+						<img src="images/regallistbtn.png" />
+					</span>
+					<span class="data-name">漫无目的的走zou</span>
+					<i class="line"></i>
+					<span class="date-money">￥120</span>
+				</li>
+				<li>
+					<span class="date-num">4</span>
+					<span class="date-img">
+						<img src="images/regallistbtn.png" />
+					</span>
+					<span class="data-name">漫无目的的走zou</span>
+					<i class="line"></i>
+					<span class="date-money">￥120</span>
+				</li>
+				<li>
+					<span class="date-num">5</span>
+					<span class="date-img">
+						<img src="images/regallistbtn.png" />
+					</span>
+					<span class="data-name">漫无目的的走zou</span>
+					<i class="line"></i>
+					<span class="date-money">￥120</span>
+				</li>
+				<li>
+					<span class="date-num">6</span>
+					<span class="date-img">
+						<img src="images/regallistbtn.png" />
+					</span>
+					<span class="data-name">漫无目的的走zou</span>
+					<i class="line"></i>
+					<span class="date-money">￥120</span>
+				</li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 活动规则 -->
+	<div class="activity-rules">
+		<div class="rules-text">
+			<h2>
+				<img src="images/rules-name.png" />
+			</h2>
+			<p>1.  活动时间：现场活动开放</p>
+			<p>2. 使用门店：持有效兑换码到联合电动门店使用</p>
+			<p>3. 抢金模式：15秒内数多少钱购车即抵多少钱，仅限购车时使用</p>
+			<p>4.本活动适用于联合电动全部在售车型</p>
+			<p>5.活动所得购车金仅限活动当天使用</p>
+			<p class="interpretation">该活动最终解释权归本联合电动所有</p>
+		</div>
+	</div>
+	<!-- 兑换奖金 -->
+	<div class="form-list">
+		<div class="formbox">
+			<h2>
+				<img src="images/form-name.png" />
+			</h2>
+			<div class="form-nocode">
+				<ul class="form-content">
+					<li>
+						<span class="form-name">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+						<input type="text" id="name">
+					</li>
+					<li>
+						<span class="form-name">联系方式</span>
+						<input type="text" id="mobile">
+					</li>
+					<li>
+						<span class="form-name">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</span>
+						<input type="text" id="address">
+					</li>
+				</ul>
+				<p class="form-prompt">成功填写信息后下次进入不再显示</p>
+				<div class="submitbtn">
+					<img src="images/submitbtn.png" />
+				</div>
+			</div>
+			<div class="form-havecode">
+				<div class="code-text">
+					14227721972
+				</div>
+				<span class="codebtn">
+					<img src="images/code-btnbg.png" />
+				</span>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/index.js"></script>
+</html>

@@ -1,0 +1,661 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+img {
+  display: block;
+  width: 100%;
+  border: none;
+}
+html {
+  color: #fff;
+  font-size: 32px;
+  height: 100%;
+}
+body {
+  width: 20rem;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  background: #eb12f3;
+  background: -webkit-linear-gradient(#eb12f3, #9448db);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#eb12f3, #9448db);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#eb12f3, #9448db);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(#eb12f3, #9448db);
+  /* 标准的语法 */
+}
+.home-page {
+  width: 20rem;
+  height: 100%;
+  z-index: 9;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  background: url(../images/homepagebg.png) no-repeat center center / cover;
+}
+.home-page .homepage-light {
+  display: block;
+  width: 26.66666667rem;
+  height: 22.02666667rem;
+  position: absolute;
+  top: -3.65333333rem;
+  left: -3.33333333rem;
+  -webkit-animation: pagelight 8s linear infinite;
+  animation: pagelight 8s linear infinite;
+}
+.home-page .red-bg {
+  display: block;
+  width: 20rem;
+  position: absolute;
+  left: 0rem;
+  bottom: 4.53333333rem;
+}
+.home-page .homepage-name {
+  width: 18.45333333rem;
+  position: absolute;
+  top: 0.64rem;
+  left: 1.54666667rem;
+}
+.home-page .home-btn {
+  width: 20rem;
+  height: 6.66666667rem;
+  position: absolute;
+  left: 0rem;
+  bottom: 0rem;
+}
+.home-page .home-btn .regallist {
+  width: 3.84rem;
+  height: 3.01333333rem;
+  position: absolute;
+  bottom: 0.69333333rem;
+  left: 1.6rem;
+}
+.home-page .home-btn .start {
+  width: 6.74666667rem;
+  height: 5.30666667rem;
+  position: absolute;
+  bottom: 0.69333333rem;
+  left: 6.66666667rem;
+}
+.home-page .home-btn .activity {
+  width: 3.84rem;
+  height: 3.01333333rem;
+  position: absolute;
+  bottom: 0.69333333rem;
+  right: 1.6rem;
+}
+.onceprompt {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  opacity: 0;
+  z-index: 8;
+  background: rgba(0, 0, 0, 0.7);
+}
+.onceprompt .promptbox {
+  width: 20rem;
+  height: 15.46666667rem;
+  position: absolute;
+  left: 0rem;
+  right: 0rem;
+  top: 0rem;
+  bottom: 0rem;
+  margin: auto;
+}
+.onceprompt .promptbox .prompttext {
+  font-size: 1.06666667rem;
+  text-align: center;
+}
+.onceprompt .promptbox .promptarrow {
+  display: block;
+  width: 1.41333333rem;
+  height: 2rem;
+  margin: 1.6rem auto 0;
+  -webkit-animation: promptarrow 1.5s linear infinite;
+  animation: promptarrow 1.5s linear infinite;
+}
+.onceprompt .promptbox span {
+  display: block;
+}
+.onceprompt .promptbox .prompthand {
+  width: 16.8rem;
+  margin: 0 auto 1.06666667rem;
+}
+.onceprompt .promptbox .ikown {
+  width: 7.46666667rem;
+  margin: 0 auto;
+}
+.countdown {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 7;
+  display: none;
+}
+.countdown .num {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  line-height: 8rem;
+  border-radius: 4rem;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 4.8rem;
+  text-align: center;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+.countdown .num.three {
+  -webkit-animation: countdown 1s;
+  animation: countdown 1s;
+}
+.countdown .num.two {
+  -webkit-animation: countdown 1s 1s;
+  animation: countdown 1s 1s;
+}
+.countdown .num.one {
+  -webkit-animation: countdown 1s 2s;
+  animation: countdown 1s 2s;
+}
+.gamecontent {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  z-index: 6;
+}
+.gamecontent .cloudbg {
+  width: 20rem;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  z-index: 6;
+}
+.gamecontent .cloudbg .numbercode {
+  width: 17.86666667rem;
+  height: 2.4rem;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 0.98666667rem;
+  right: 0rem;
+  left: 0rem;
+  color: #e2311d;
+  margin: auto;
+}
+.gamecontent .cloudbg .numbercode .moneynumber {
+  display: block;
+  width: 6.72rem;
+  height: 2.34666667rem;
+  line-height: 2.34666667rem;
+  padding-left: 2.4rem;
+  float: left;
+  background: url(../images/moneynumber.png) no-repeat center center / contain;
+}
+.gamecontent .cloudbg .numbercode .timenumber {
+  display: block;
+  width: 6.72rem;
+  height: 2.34666667rem;
+  line-height: 2.34666667rem;
+  padding-left: 2.93333333rem;
+  float: right;
+  background: url(../images/timenumber.png) no-repeat center center / contain;
+}
+.gamecontent .bottombg {
+  width: 20rem;
+  position: absolute;
+  bottom: 0rem;
+  left: 0rem;
+  z-index: 6;
+}
+.endgame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  padding-top: 6.93333333rem;
+  z-index: 5;
+  display: none;
+  background: #eb12f3;
+  background: -webkit-linear-gradient(#eb12f3, #9448db);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#eb12f3, #9448db);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#eb12f3, #9448db);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(#eb12f3, #9448db);
+  /* 标准的语法 */
+}
+.endgame > p {
+  width: 20rem;
+  font-size: 0.96rem;
+  line-height: 1.33333333rem;
+  margin-bottom: 1.06666667rem;
+  text-align: center;
+}
+.endgame > p .moneybig {
+  font-size: 2.13333333rem;
+  color: #ffe700;
+}
+.endgame > p .codebig {
+  font-size: 1.6rem;
+  color: #ffe700;
+}
+.endgame .endbtnlist {
+  width: 20rem;
+  height: 4.26666667rem;
+  position: absolute;
+  left: 0rem;
+  bottom: 13.86666667rem;
+  padding: 0 0.8rem;
+}
+.endgame .endbtnlist .endbtn {
+  display: block;
+  width: 5.49333333rem;
+  height: 4.26666667rem;
+  float: left;
+}
+.endgame .endbtnlist .oncemore {
+  margin: 0 0.96rem;
+}
+.endgame .redbig {
+  display: block;
+  width: 8.48rem;
+  position: absolute;
+  left: 5.76rem;
+  bottom: 1.6rem;
+}
+.rankinglist-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+.rankinglist {
+  width: 17.86666667rem;
+  height: 26.66666667rem;
+  padding: 0.53333333rem;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  margin: auto;
+  background: url(../images/rankinglist.png) no-repeat center center / contain;
+}
+.rankinglist h2 {
+  width: 10.48rem;
+  margin: 1.06666667rem auto 0.96rem;
+}
+.rankinglist .my-date {
+  width: 100%;
+  height: 4rem;
+  padding: 0.93333333rem 1.01333333rem;
+  background: url(../images/mydatabg.png) no-repeat center center / cover;
+}
+.rankinglist .my-date span {
+  display: block;
+}
+.rankinglist .my-date .date-num {
+  width: 2.08rem;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  font-size: 0.85333333rem;
+  color: #ff5150;
+  text-align: center;
+  float: left;
+}
+.rankinglist .my-date .date-img {
+  width: 2.13333333rem;
+  height: 2.13333333rem;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  float: left;
+}
+.rankinglist .my-date .date-img img {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  margin: auto;
+}
+.rankinglist .my-date .data-name {
+  width: 6.4rem;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  font-size: 0.96rem;
+  padding-left: 0.53333333rem;
+  color: #999;
+  float: left;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rankinglist .my-date .line {
+  display: block;
+  width: 0.10666667rem;
+  height: 2.13333333rem;
+  margin-left: 0.26666667rem;
+  background: #ececec;
+  float: left;
+}
+.rankinglist .my-date .date-money {
+  width: 3.73333333rem;
+  height: 2.13333333rem;
+  font-size: 1.06666667rem;
+  line-height: 2.13333333rem;
+  float: right;
+  color: #ff5150;
+}
+.rankinglist .date-list {
+  width: 100%;
+  height: 17.6rem;
+  margin-top: 0.53333333rem;
+  overflow: auto;
+  padding: 0 1.01333333rem;
+}
+.rankinglist .date-list li {
+  width: 100%;
+  height: 3.46666667rem;
+  padding: 0.66666667rem 0;
+  border-bottom: 1px solid #ddd;
+}
+.rankinglist .date-list li span {
+  display: block;
+}
+.rankinglist .date-list li .date-num {
+  width: 2.08rem;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  font-size: 0.85333333rem;
+  color: #333333;
+  text-align: center;
+  float: left;
+}
+.rankinglist .date-list li .date-img {
+  width: 2.13333333rem;
+  height: 2.13333333rem;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  float: left;
+}
+.rankinglist .date-list li .date-img img {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  margin: auto;
+}
+.rankinglist .date-list li .data-name {
+  width: 6.4rem;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  font-size: 0.96rem;
+  padding-left: 0.53333333rem;
+  color: #999;
+  float: left;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rankinglist .date-list li .line {
+  display: block;
+  width: 0.10666667rem;
+  height: 2.13333333rem;
+  margin-left: 0.26666667rem;
+  background: #ececec;
+  float: left;
+}
+.rankinglist .date-list li .date-money {
+  width: 3.73333333rem;
+  height: 2.13333333rem;
+  font-size: 1.06666667rem;
+  line-height: 2.13333333rem;
+  float: right;
+  color: #ff5150;
+}
+.rankinglist .date-list li:nth-of-type(1) {
+  background: url(../images/listone.png) no-repeat 0.37rem center / 1.3rem;
+}
+.rankinglist .date-list li:nth-of-type(1) .date-num {
+  opacity: 0;
+}
+.rankinglist .date-list li:nth-of-type(2) {
+  background: url(../images/listtwo.png) no-repeat 0.37rem center / 1.3rem;
+}
+.rankinglist .date-list li:nth-of-type(2) .date-num {
+  opacity: 0;
+}
+.rankinglist .date-list li:nth-of-type(3) {
+  background: url(../images/listthree.png) no-repeat 0.37rem center / 1.3rem;
+}
+.rankinglist .date-list li:nth-of-type(3) .date-num {
+  opacity: 0;
+}
+.activity-rules {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+.activity-rules .rules-text {
+  width: 17.86666667rem;
+  height: 18.85333333rem;
+  padding: 1.6rem 1.33333333rem 0;
+  background: url(../images/rulesbg.png) no-repeat center center / contain;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  margin: auto;
+}
+.activity-rules .rules-text h2 {
+  width: 6.64rem;
+  height: 1.33333333rem;
+  margin: 0 auto 0.93333333rem;
+}
+.activity-rules .rules-text p {
+  margin-bottom: 0.8rem;
+  line-height: 1.2rem;
+  font-size: 0.85333333rem;
+  color: #666;
+}
+.activity-rules .rules-text .interpretation {
+  font-size: 0.74666667rem;
+  color: #999;
+  text-align: center;
+}
+.form-list {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+.form-list .formbox {
+  width: 17.86666667rem;
+  height: 18.85333333rem;
+  padding: 1.6rem 1.33333333rem 0;
+  background: url(../images/rulesbg.png) no-repeat center center / contain;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  margin: auto;
+  padding: 2.4rem 1.33333333rem 0;
+}
+.form-list .formbox h2 {
+  width: 9.81333333rem;
+  margin: 0 auto 0.96rem;
+}
+.form-list .formbox .form-content {
+  padding-bottom: 0.26666667rem;
+}
+.form-list .formbox .form-content li {
+  width: 15.2rem;
+  height: 2.13333333rem;
+  margin-bottom: 0.53333333rem;
+  position: relative;
+  background: url(../images/form-libg.png) no-repeat center center / contain;
+}
+.form-list .formbox .form-content li .form-name {
+  display: block;
+  width: 4.16rem;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  font-size: 0.85333333rem;
+  text-align: center;
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  color: #666;
+}
+.form-list .formbox .form-content li > input {
+  width: 10.66666667rem;
+  height: 2.13333333rem;
+  position: absolute;
+  top: 0rem;
+  left: 4.26666667rem;
+  outline-style: none;
+  border: none;
+  background: none;
+}
+.form-list .formbox .form-prompt {
+  font-size: 0.74666667rem;
+  color: #999;
+  text-align: center;
+}
+.form-list .formbox .submitbtn {
+  width: 6.93333333rem;
+  height: 2.26666667rem;
+  margin: 0.8rem auto 0;
+}
+.form-list .form-havecode {
+  padding-top: 2.66666667rem;
+  display: none;
+}
+.form-list .form-havecode .code-text {
+  width: 15.2rem;
+  height: 5.33333333rem;
+  line-height: 5.33333333rem;
+  font-size: 1.6rem;
+  color: #666;
+  text-align: center;
+  letter-spacing: 0.3rem;
+  background: url(../images/formcode-text.png) no-repeat center center / contain;
+}
+.form-list .form-havecode .codebtn {
+  display: block;
+  width: 6.93333333rem;
+  height: 2.26666667rem;
+  margin: 2.4rem auto 0;
+}
+@keyframes pagelight {
+  0% {
+    opacity: 1;
+    transform: rotateZ(0deg) scale(1.1, 1.1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: rotateZ(180deg) scale(1, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(360deg) scale(1.1, 1.1);
+  }
+}
+@-webkit-keyframes pagelight {
+  0% {
+    opacity: 1;
+    -webkit-transform: rotateZ(0deg) scale(1.1, 1.1);
+  }
+  50% {
+    opacity: 0.3;
+    -webkit-transform: rotateZ(180deg) scale(1, 1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotateZ(360deg) scale(1.1, 1.1);
+  }
+}
+@keyframes promptarrow {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-0.5rem);
+  }
+  75% {
+    transform: translateY(0.5rem);
+  }
+}
+@-webkit-keyframes promptarrow {
+  0%,
+  50%,
+  100% {
+    -webkit-transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(-0.5rem);
+  }
+  75% {
+    -webkit-transform: translateY(0.5rem);
+  }
+}
+@keyframes countdown {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@-webkit-keyframes countdown {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+  }
+}
