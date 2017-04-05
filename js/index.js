@@ -1,4 +1,5 @@
 $(function(){
+	alert(1)
 	// 执行动画函数
 	window.RAF = (function(){
 		return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {window.setTimeout(callback, 1000 / 60); };
