@@ -62,7 +62,7 @@ $(function(){
 		down_ten.src= 'images/down-10.png';
 	})()
 	
-			init.start();
+			
 	var sprite = function(top,left){
 		this.width = 0;
 		this.height = 0;
@@ -162,6 +162,7 @@ $(function(){
 			this.loop();
 		}
 	}
+	init.start();
 	touch.on($(document),'swipeup',function(){
 		if(start == 2){
 			random = Math.floor(Math.random()*3);
