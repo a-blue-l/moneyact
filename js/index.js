@@ -57,13 +57,13 @@ $(function(){
 			one_money.width = event.path[0].width/1.7;
 			one_money.height = event.path[0].height/1.7;
 		},false)
-		one_money.src = 'http://test.i-ev.com/Public/money/images/one_money.png';
-		five_money.src = 'http://test.i-ev.com/Public/money/images/five_money.png';
-		ten_money.src = 'http://test.i-ev.com/Public/money/images/ten_money.png';
-		back_money.src = 'http://test.i-ev.com/Public/money/images/one_money.png';
-		down_one.src= 'http://test.i-ev.com/Public/money/images/down-1.png';
-		down_five.src= 'http://test.i-ev.com/Public/money/images/down-5.png';
-		down_ten.src= 'http://test.i-ev.com/Public/money/images/down-10.png';
+		one_money.src = 'images/one_money.png';
+		five_money.src = 'images/five_money.png';
+		ten_money.src = 'images/ten_money.png';
+		back_money.src = 'images/one_money.png';
+		down_one.src= 'images/down-1.png';
+		down_five.src= 'images/down-5.png';
+		down_ten.src= 'images/down-10.png';
 	})()
 	var sprite = function(top,left){
 		this.width = 0;
