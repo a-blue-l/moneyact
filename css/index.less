@@ -18,6 +18,7 @@ html {
   color: #fff;
   font-size: 32px;
   height: 100%;
+  overflow: hidden;
 }
 body{
 	.px(width, 750);
@@ -31,6 +32,32 @@ body{
 	background: -o-linear-gradient(#eb12f3, #9448db); /* Opera 11.1 - 12.0 */
 	background: -moz-linear-gradient(#eb12f3, #9448db); /* Firefox 3.6 - 15 */
 	background: linear-gradient(#eb12f3, #9448db); /* 标准的语法 */
+}
+.loading{
+	width: 100%;
+	height: 100%;
+	position:absolute;
+	.px(top, 0);
+	.px(left, 0);
+	z-index: 999;
+	background: #eb12f3;
+	background: -webkit-linear-gradient(#eb12f3, #9448db); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(#eb12f3, #9448db); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(#eb12f3, #9448db); /* Firefox 3.6 - 15 */
+	background: linear-gradient(#eb12f3, #9448db); /* 标准的语法 */
+	.loadtext{
+		.px(width,100);
+		.px(height,100);
+		.px(line-height,100);
+		.px(font-size,36);
+		text-align: center;
+		position:absolute;
+		.px(top, 0);
+		.px(right, 0);
+		.px(bottom, 0);
+		.px(left, 0);
+		margin:auto;
+	}
 }
 // 首页
 .home-page{
@@ -244,7 +271,8 @@ body{
 	&>p{
 		.px(width, 750);
 		.px(font-size, 36);
-		.px(line-height, 50);
+		.px(height, 36);
+		.px(line-height, 36);
 		.px(margin-bottom, 40);
 		text-align: center;
 		.moneybig{
@@ -261,7 +289,7 @@ body{
 		.px(height, 160);
 		position:absolute;
 		.px(left, 0);
-		.px(bottom, 520);
+		.px(top, 536);
 		padding:0 30/37.5rem;
 		.endbtn{
 			display: block;
@@ -551,6 +579,8 @@ body{
 					outline-style: none;
 					border: none;
 					background: none;
+					-webkit-tap-highlight-color: transparent;
+							tap-highlight-color: transparent;
 				}
 			}
 		}

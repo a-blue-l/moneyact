@@ -18,6 +18,10 @@ $(function(){
 	// 图片加载
 
 	//配置
+	var data = {
+		posY: 0,
+		posYt: 0
+	}
 	var start = 1;
 	var timer = 15;
 	var money_arr = [];
@@ -28,6 +32,8 @@ $(function(){
 	var old_map = 1;
 	var money_down = 2;
 	var my_money = 0;
+	var moneybigWidth = window.innerWidth / 1.4;
+	var moneybigHeight = window.innerWidth;
 	var canvas = document.getElementById('canvas');
 	var ctx = canvas.getContext('2d');
 	var one_money = new Image();
@@ -37,20 +43,12 @@ $(function(){
 	var down_one = new Image();
 	var down_five = new Image();
 	var down_ten = new Image();
-	var backWidth,backHeigh;
+	var backwidth,backheigh;
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 	var setcookie = localStorage.getItem('startscond');
-	console.log(setcookie)
 	;
 	(function(){
-		one_money.src = 'images/one_money.png';
-		five_money.src = 'images/five_money.png';
-		ten_money.src = 'images/ten_money.png';
-		back_money.src = 'images/one_money.png';
-		down_one.src= 'images/down-1.png';
-		down_five.src= 'images/down-5.png';
-		down_ten.src= 'images/down-10.png';
 		back_money.addEventListener('load',function(event){
 			backwidth = back_money.width = event.path[0].width/1.7;
 			backheight = back_money.height = event.path[0].height/1.7;
@@ -58,8 +56,14 @@ $(function(){
 		one_money.addEventListener('load',function(event){
 			one_money.width = event.path[0].width/1.7;
 			one_money.height = event.path[0].height/1.7;
-			init.start();
 		},false)
+		one_money.src = 'http://test.i-ev.com/Public/money/images/one_money.png';
+		five_money.src = 'http://test.i-ev.com/Public/money/images/five_money.png';
+		ten_money.src = 'http://test.i-ev.com/Public/money/images/ten_money.png';
+		back_money.src = 'http://test.i-ev.com/Public/money/images/one_money.png';
+		down_one.src= 'http://test.i-ev.com/Public/money/images/down-1.png';
+		down_five.src= 'http://test.i-ev.com/Public/money/images/down-5.png';
+		down_ten.src= 'http://test.i-ev.com/Public/money/images/down-10.png';
 	})()
 	var sprite = function(top,left){
 		this.width = 0;
@@ -76,11 +80,11 @@ $(function(){
 	sprite.prototype = {
 		draw:function(sprite){
 			if(sprite.map == 1){
-				ctx.drawImage(one_money, sprite.left, sprite.top, one_money.width, one_money.height);
+				ctx.drawImage(one_money, sprite.left, sprite.top, moneybigWidth, moneybigHeight);
 			}else if(sprite.map == 5){
-				ctx.drawImage(five_money, sprite.left, sprite.top, one_money.width, one_money.height);
+				ctx.drawImage(five_money, sprite.left, sprite.top, moneybigWidth, moneybigHeight);
 			}else if(sprite.map == 10){
-				ctx.drawImage(ten_money, sprite.left, sprite.top, one_money.width, one_money.height);
+				ctx.drawImage(ten_money, sprite.left, sprite.top, moneybigWidth, moneybigHeight);
 			}
 			if(sprite.falg == 'true'){
 				sprite.top -= 20;
@@ -92,11 +96,11 @@ $(function(){
 		},
 		drawnext:function(sprite){
 			if(sprite.map == 1){
-				ctx.drawImage(one_money, sprite.left, sprite.top, one_money.width, one_money.height);
+				ctx.drawImage(one_money, sprite.left, sprite.top, moneybigWidth, moneybigHeight);
 			}else if(sprite.map == 5){
-				ctx.drawImage(five_money, sprite.left, sprite.top, one_money.width, one_money.height);
+				ctx.drawImage(five_money, sprite.left, sprite.top, moneybigWidth, moneybigHeight);
 			}else if(sprite.map == 10){
-				ctx.drawImage(ten_money, sprite.left, sprite.top, one_money.width, one_money.height);
+				ctx.drawImage(ten_money, sprite.left, sprite.top, moneybigWidth, moneybigHeight);
 			}
 			old_map = random_actual;
 		}
@@ -127,7 +131,7 @@ $(function(){
 			down_arr.foreach(function(){
 				this.draw(this);
 			})
-			ctx.drawImage(back_money, (canvas.width - back_money.width)/2, canvas.height - back_money.height, back_money.width, back_money.height);
+			ctx.drawImage(back_money, (canvas.width - moneybigWidth)/2, canvas.height - moneybigHeight, moneybigWidth, moneybigHeight);
 			floor_money.drawnext(floor_money);
 			money_arr.foreach(function(){
 				if(this.falg == 'true'){
@@ -144,33 +148,44 @@ $(function(){
 		},
 		start: function(){
 			for( var i = 0; i < 20; i ++ ){
-				var money_this = new sprite(canvas.height - one_money.height,(canvas.width - one_money.width)/2);
+				var money_this = new sprite(canvas.height - moneybigHeight,(canvas.width - moneybigWidth)/2);
 				money_this.falg = 'false';
 				money_this.map = 1;
 				money_arr.push(money_this);
 			}		
 			for( var i = 0; i < 50; i ++ ){
-				var down_money = new downmoney(-canvas.height/3*Math.random(),canvas.width*Math.random());
+				var down_money = new downmoney(-canvas.height/4*Math.random(),canvas.width*Math.random());
 				down_money.falg = 'false';
 				down_money.map = Math.floor(Math.random()*3);
 				down_arr.push(down_money);
 			}
-			floor_money = new sprite(canvas.height - one_money.height,(canvas.width - one_money.width)/2);
+			floor_money = new sprite(canvas.height - moneybigHeight,(canvas.width - moneybigWidth)/2);
 			floor_money.map = 1;
 			this.loop();
 		}
 	}
-	touch.on($(document),'swipeup',function(){
+	$(document).on('touchmove',function(e){
+		e.preventDefault(); 
+	})
+	function touchstar(){
 		if(start == 2){
-			random = Math.floor(Math.random()*3);
-			if(random == 0){
+			random = Math.random();
+			if(random >= 0.55 ){
 				random_actual = 1;
-			}else if(random == 1){
+			}else if(random < 0.55 && random > 0.2){
 				random_actual = 5;
-			}else if(random == 2){
+			}else if(random <= 0.2){
 				random_actual = 10;
 			}
 			my_money += old_map;
+			// 手速太快
+			if(my_money >= 500){
+				my_money = 500;
+				timer = 0;
+				start = 3;
+				$('.endfirst').text('恭喜您的手速已经突破天际了！');
+				endgame();
+			}
 			// 最终money
 			$('.moneynumber').text('¥ '+my_money);
 			floor_money.map = random_actual;
@@ -194,7 +209,23 @@ $(function(){
 				}
 			}
 		}
+	}
+	$('.gamecontent').bind('touchstart',function(ev){
+		var Yone = ev.targetTouches[0].pageY;
+		data.posY = Yone;
+		$('.gamecontent').bind('touchmove',function(e){
+			var Ytwo = e.targetTouches[0].pageY;
+			data.posYt = Ytwo;
+			if((data.posYt - data.posY) < -50){
+				touchstar();
+				$('.gamecontent').unbind('touchmove');
+			}
+		})
 	})
+	$('.gamecontent').on('touchend',function(){
+		$('.gamecontent').unbind('touchmove');
+	})
+	//游戏开始倒计时
 	function startgame(){
 		$('.onceprompt').css({display:'none'});
 		$('.countdown').css({display:'block'});
@@ -205,6 +236,7 @@ $(function(){
 			timeout();
 		},3000)
 	}
+	// 时间倒计时
 	function timeout(){
 		var timenumber = setInterval(function(){
 			timer --;
@@ -217,21 +249,22 @@ $(function(){
 			$('.timenumber').text(timer+'"');
 		},1000);
 	}
+	// 游戏结束
 	function endgame(){
-		ctx.clearRect(0,0,canvas.width,canvas.height);
 		$('.endgame').css({display:'block'});
 		$('.moneybig').text(my_money);
 	}
 	// start
-	$('.start').click(function(e){
+	$('.start').on('touchstart',function(e){
 		$('.home-page').css({display:'none'});
 		$('.onceprompt').css({opacity:1});
-		localStorage.setItem('startscond',true);
 		if( setcookie === 'true' ){
 			startgame();
 		}
 	})
-	$('.ikown').click(function(){
+	// 点击我知道了
+	$('.ikown').on('touchstart',function(){
+		localStorage.setItem('startscond',true);
 		startgame();
 	})
 	// 重置函数
@@ -248,41 +281,42 @@ $(function(){
 		return Phonetest.test(phone);
 	}
 	// 排行榜
-	$('.regallist').click(function(){
+	$('.regallist').on('touchstart',function(){
 		$('.rankinglist-box').css({display:'block'});
 	})
-	$('.rankinglist-box').click(function(){
+	$('.rankinglist-box').on('touchstart',function(){
 		$('.rankinglist-box').css({display:'none'});
 	})
-	$('.rankinglist,.rules-text,.formbox').click(function(e){
+	$('.rankinglist,.rules-text,.formbox').on('touchstart',function(e){
 		e.stopPropagation();
 	})
 	// 活动规则
-	$('.activity').click(function(){
+	$('.activity').on('touchstart',function(){
 		$('.activity-rules').css({display:'block'});
 	})
-	$('.activity-rules').click(function(){
+	$('.activity-rules').on('touchstart',function(){
 		$('.activity-rules').css({display:'none'});
 	})
 	// 奖项兑换
-	$('.bonusbtn').click(function(){
+	$('.bonusbtn').on('click',function(){
 		$('.form-list').css({display:'block'});
 	})
-	$('.form-list').click(function(){
+	$('.form-list').on('touchstart',function(){
 		$('.form-list').css({display:'none'});
 	})
 	// 返回首页
-	$('.returnhome').click(function(){
+	$('.returnhome').on('click',function(){
 		$('.home-page').css({display:'block'});
 		reset();
 	})
 	// 再来一次
-	$('.oncemore').click(function(){
+	$('.oncemore').on('click',function(){
 		reset();
 		startgame();
 	})
+
 	// 提交信息
-	$('.submitbtn').click(function(){
+	$('.submitbtn').on('touchstart',function(){
 		var name,mobile,address;
 		if( $('#name').val() ){
 
@@ -304,4 +338,69 @@ $(function(){
 		}
 		alert('提交成功');
 	})
+	// loading
+	var images = new Array();
+	var t,i = 0;
+	var loadedimages = 0;
+	function preload(arr){
+		var arr=(typeof arr!="object")? [arr] : arr;
+		function imgload(){
+			loadedimages ++;
+			$('.loadtext').text( parseInt((Number(loadedimages/arr.length))*100) + '%' );
+	        if (loadedimages==arr.length){
+	        	clearInterval(t);
+        		$('.loading').css({display:'none'});
+				init.start();
+	        }
+		}
+		function fortest(){
+			images[i] = new Image();
+			images[i].src = arr[i];
+			images[i].onload = function(){
+				imgload();
+			}
+			i++;
+		}
+		t = setInterval(fortest,80);
+	}
+	preload(
+		[
+			'http://test.i-ev.com/Public/money/images/activitybtn.png',
+			'http://test.i-ev.com/Public/money/images/bonusbtn.png',
+			'http://test.i-ev.com/Public/money/images/bottom_img.png',
+			'http://test.i-ev.com/Public/money/images/code-btnbg.png',
+			'http://test.i-ev.com/Public/money/images/down-1.png',
+			'http://test.i-ev.com/Public/money/images/down-5.png',
+			'http://test.i-ev.com/Public/money/images/down-10.png',
+			'http://test.i-ev.com/Public/money/images/formcode-text.png',
+			'http://test.i-ev.com/Public/money/images/form-libg.png',
+			'http://test.i-ev.com/Public/money/images/form-name.png',
+			'http://test.i-ev.com/Public/money/images/homepage_light.png',
+			'http://test.i-ev.com/Public/money/images/homepage_name.png',
+			'http://test.i-ev.com/Public/money/images/homepagebg.png',
+			'http://test.i-ev.com/Public/money/images/ikoenbg.png',
+			'http://test.i-ev.com/Public/money/images/listone.png',
+			'http://test.i-ev.com/Public/money/images/listthree.png',
+			'http://test.i-ev.com/Public/money/images/listtwo.png',
+			'http://test.i-ev.com/Public/money/images/moneynumber.png',
+			'http://test.i-ev.com/Public/money/images/mydatabg.png',
+			'http://test.i-ev.com/Public/money/images/oncemore.png',
+			'http://test.i-ev.com/Public/money/images/one_money.png',
+			'http://test.i-ev.com/Public/money/images/promptarrow.png',
+			'http://test.i-ev.com/Public/money/images/prompthand.png',
+			'http://test.i-ev.com/Public/money/images/rankinglist.png',
+			'http://test.i-ev.com/Public/money/images/rankname.png',
+			'http://test.i-ev.com/Public/money/images/red-bg.png',
+			'http://test.i-ev.com/Public/money/images/redbigbg.png',
+			'http://test.i-ev.com/Public/money/images/regallistbtn.png',
+			'http://test.i-ev.com/Public/money/images/returnhome.png',
+			'http://test.i-ev.com/Public/money/images/rulesbg.png',
+			'http://test.i-ev.com/Public/money/images/rules-name.png',
+			'http://test.i-ev.com/Public/money/images/startbtn.png',
+			'http://test.i-ev.com/Public/money/images/submitbtn.png',
+			'http://test.i-ev.com/Public/money/images/ten_money.png',
+			'http://test.i-ev.com/Public/money/images/timenumber.png',
+			'http://test.i-ev.com/Public/money/images/top_cloud.png'
+		]
+	)
 })
