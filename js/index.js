@@ -210,7 +210,10 @@ $(function(){
 			}
 		}
 	}
+// 防止多手指出发多次函数
+	var touchfalg = true;
 	$('.gamecontent').bind('touchstart',function(ev){
+		touchfalg = true;
 		var Yone = ev.targetTouches[0].pageY;
 		data.posY = Yone;
 		$('.gamecontent').bind('touchmove',function(e){
@@ -218,6 +221,7 @@ $(function(){
 			data.posYt = Ytwo;
 			if((data.posYt - data.posY) < -50){
 				touchstar();
+				touchfalg = false;
 				$('.gamecontent').unbind('touchmove');
 			}
 		})
