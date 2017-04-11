@@ -210,7 +210,7 @@ $(function(){
 			}
 		}
 	}
-// 防止多手指出发多次函数
+// 防止多手指触发多次函数
 	var touchfalg = true;
 	$('.gamecontent').bind('touchstart',function(ev){
 		touchfalg = true;
